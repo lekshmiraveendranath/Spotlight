@@ -8,7 +8,7 @@ Introductory walkthrough framework for iOS Apps (inspired by [Gecco](https://git
 Setting up Spotlight is really simple and takes only a few lines of code. There are convenience initializers for views and bar buttons and more choices.
 
 ``` swift
-import Spotlight
+import LRSpotlight
 
 class ViewController: UIViewController {
 
