@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,8 +54,8 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" name="CrimsonRed"/>
                         <constraints>
+                            <constraint firstItem="O7o-NU-QC2" firstAttribute="leading" relation="lessThanOrEqual" secondItem="WqJ-pZ-8Wj" secondAttribute="trailing" constant="78" id="9uc-pX-cr8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WqJ-pZ-8Wj" secondAttribute="bottom" constant="45" id="BoT-nM-zvg"/>
                             <constraint firstItem="nTu-q0-rPh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="EgD-MI-GkO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O7o-NU-QC2" secondAttribute="bottom" constant="72" id="Fjw-Oi-d7G"/>
@@ -112,8 +111,5 @@
     </scenes>
     <resources>
         <image name="Background" width="5304" height="7952"/>
-        <namedColor name="CrimsonRed">
-            <color red="1" green="0.0" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
