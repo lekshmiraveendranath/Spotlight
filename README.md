@@ -1,7 +1,7 @@
 # Spotlight
 Introductory walkthrough framework for iOS Apps (inspired by [Gecco](https://github.com/yukiasai/Gecco), Rewrite to make it simpler)
 
-![Demo]
+![Demo](Spotlight.gif)
 
 ## Usage
 
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         let nodes = [SpotlightNode(text: "Show Spotlight on a Bar button item", target: .barButton(navigationItem.rightBarButtonItem)),
         SpotlightNode(text: "Show Spotlight on a View", target: .view(nameLabel)),
         SpotlightNode(text: "Show Spotlight at a point location", target: .point(CGPoint(x: 100, y: 100), radius: 50))]
-        
+
         Spotlight().startIntro(from: self, withNodes: nodes)
     }
 
