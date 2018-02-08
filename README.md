@@ -5,9 +5,8 @@ Introductory walkthrough framework for iOS Apps (inspired by [Gecco](https://git
 
 ## Usage
 
-#### Basic
-
 Setting up Spotlight is really simple and takes only a few lines of code. There are convenience initializers for views and bar buttons and more choices.
+
 ``` swift
 import Spotlight
 
@@ -37,10 +36,10 @@ pod 'LRSpotlight'
 github "lekshmiraveendranath/Spotlight"
 ```
 
-## Feature
+## Features
 
-- [ ] Easy to integrate, just few lines of code
-- [ ] Code based Spotlights, no need for an additional storyboard scene per screen for laying out text as in Gecco
-- [ ] Timer based automatic forwarding (configurable)
-- [ ] Convenience initializers for view and bar button items
-- [ ] Swift 4
+- [x] Easy to integrate, just few lines of code
+- [x] Code based Spotlights, no need for an additional storyboard scene per screen for laying out text as in Gecco
+- [x] Timer based automatic forwarding (configurable)
+- [x] Convenience initializers for view and bar button items
+- [x] Swift 4
