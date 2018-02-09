@@ -48,12 +48,19 @@ extension SpotlightViewController {
         infoStackView.axis = .vertical
         infoStackView.distribution = .fill
         infoStackView.spacing = 8
+        infoStackView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        infoStackView.isLayoutMarginsRelativeArrangement = true
 
-//        let stackBackgroundView = UIView()
-//        stackBackgroundView.backgroundColor = .white
-//        stackBackgroundView.layer.cornerRadius = 5.0
-//        stackBackgroundView.alpha = 0.5
-//        stackBackgroundView.embedAndpin(to: infoStackView)
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+        blurredEffectView.layer.cornerRadius = 10.0
+        vibrancyEffectView.layer.cornerRadius = 10.0
+        blurredEffectView.clipsToBounds = true
+        vibrancyEffectView.clipsToBounds = true
+        blurredEffectView.embedAndpin(to: infoStackView)
+        vibrancyEffectView.embedAndpin(to: infoStackView)
         
         view.addSubview(infoStackView)
 

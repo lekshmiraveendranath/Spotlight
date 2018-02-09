@@ -102,11 +102,12 @@ extension SpotlightViewController {
             targetRect = spotlightView.move(node)
         }
 
-        // Animate the info label change
+        infoLabel.text = node.text.isEmpty ? " " : node.text
+
+        // Animate the info box around if intersects with spotlight
         view.layoutIfNeeded()
         UIView.animate(withDuration: Spotlight.animationDuration, animations: { [weak self] in
             guard let `self` = self else { return }
-            self.infoLabel.text = node.text
             if targetRect.intersects(self.infoStackView.frame) {
                 if self.infoStackTopConstraint.priority == .defaultLow {
                     self.infoStackTopConstraint.priority = .defaultHigh
