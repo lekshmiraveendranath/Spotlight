@@ -11,8 +11,9 @@ import UIKit
 
 public struct Spotlight {
 
-    public static var moveDuration: TimeInterval = 4.0
+    public static var delay: TimeInterval = 3.0
     public static var animationDuration: TimeInterval = 0.25
+    public static var showInfoBackground = true
 
     public init() {}
 
