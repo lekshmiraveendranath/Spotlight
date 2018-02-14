@@ -12,6 +12,11 @@ import LRSpotlight
 
 class ViewController: UIViewController {
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startIntro()
+    }
+
     func startIntro() {
         let nodes = [SpotlightNode(text: "Show Spotlight on a Bar button item", target: .barButton(navigationItem.rightBarButtonItem)),
         SpotlightNode(text: "Show Spotlight on a View", target: .view(nameLabel)),
@@ -34,6 +39,16 @@ pod 'LRSpotlight'
 
 ```
 github "lekshmiraveendranath/Spotlight"
+```
+
+### Configurations
+```swift
+// Change the delay between spotlights (defaults to 3 seconds)
+Spotlight.delay = 5.0 
+// Change the animation duration for spotlight appearance (Defaults to 0.25 seconds)
+Spotlight.animationDuration = 0.1
+// Display a background for the info text view (defaults to true)
+Spotlight.showInfoBackground = true
 ```
 
 ## Features
