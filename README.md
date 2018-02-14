@@ -57,4 +57,5 @@ Spotlight.showInfoBackground = true
 - [x] Code based Spotlights, no need for an additional storyboard scene per screen for laying out text as in Gecco
 - [x] Timer based automatic forwarding (configurable)
 - [x] Convenience initializers for view and bar button items
+- [x] Compatible with UI Version testing, since Spotlights are displayed over UI elements at runtime
 - [x] Swift 4
