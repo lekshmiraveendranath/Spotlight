@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     
     @IBAction func startTutorial() {
 
+        Spotlight.delay = 4.0
+        Spotlight.showInfoBackground = false
+
         guard let rightBB1 = navigationItem.rightBarButtonItem, let leftBB1 = navigationItem.leftBarButtonItem else { return }
 
         let n1 = SpotlightNode(text: "Show spotlight on a bar button item", target: .barButton(rightBB1))

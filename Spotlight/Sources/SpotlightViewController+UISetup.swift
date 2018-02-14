@@ -51,17 +51,19 @@ extension SpotlightViewController {
         infoStackView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         infoStackView.isLayoutMarginsRelativeArrangement = true
 
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
-        blurredEffectView.layer.cornerRadius = 10.0
-        vibrancyEffectView.layer.cornerRadius = 10.0
-        blurredEffectView.clipsToBounds = true
-        vibrancyEffectView.clipsToBounds = true
-        blurredEffectView.embedAndpin(to: infoStackView)
-        vibrancyEffectView.embedAndpin(to: infoStackView)
-        
+        if Spotlight.showInfoBackground {
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+            let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+            let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+            blurredEffectView.layer.cornerRadius = 10.0
+            vibrancyEffectView.layer.cornerRadius = 10.0
+            blurredEffectView.clipsToBounds = true
+            vibrancyEffectView.clipsToBounds = true
+            blurredEffectView.embedAndpin(to: infoStackView)
+            vibrancyEffectView.embedAndpin(to: infoStackView)
+        }
+
         view.addSubview(infoStackView)
 
         infoStackView.translatesAutoresizingMaskIntoConstraints = false
