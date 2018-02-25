@@ -14,6 +14,7 @@
 		413B98F12029861300EF3606 /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B98EB2029861300EF3606 /* SpotlightViewController.swift */; };
 		413B98F22029861300EF3606 /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B98EC2029861300EF3606 /* SpotlightView.swift */; };
 		413B98F32029861300EF3606 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B98ED2029861300EF3606 /* UIKitExtensions.swift */; };
+		41CB6A77203DEAF4006C0DB5 /* SpotlightTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CB6A76203DEAF4006C0DB5 /* SpotlightTarget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		413B98EB2029861300EF3606 /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
 		413B98EC2029861300EF3606 /* SpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightView.swift; sourceTree = "<group>"; };
 		413B98ED2029861300EF3606 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		41CB6A76203DEAF4006C0DB5 /* SpotlightTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightTarget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				413B98E82029861300EF3606 /* Spotlight.swift */,
 				413B98E92029861300EF3606 /* SpotlightNode.swift */,
+				41CB6A76203DEAF4006C0DB5 /* SpotlightTarget.swift */,
 				413B98EC2029861300EF3606 /* SpotlightView.swift */,
 				413B98EB2029861300EF3606 /* SpotlightViewController.swift */,
 				413B98EA2029861300EF3606 /* SpotlightViewController+UISetup.swift */,
@@ -163,6 +166,7 @@
 				413B98F32029861300EF3606 /* UIKitExtensions.swift in Sources */,
 				413B98F12029861300EF3606 /* SpotlightViewController.swift in Sources */,
 				413B98EE2029861300EF3606 /* Spotlight.swift in Sources */,
+				41CB6A77203DEAF4006C0DB5 /* SpotlightTarget.swift in Sources */,
 				413B98F02029861300EF3606 /* SpotlightViewController+UISetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,14 +8,7 @@
 
 import UIKit
 
-open class SpotlightView: UIView {
-
-    fileprivate lazy var maskLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.fillRule = kCAFillRuleEvenOdd
-        layer.fillColor = UIColor.black.cgColor
-        return layer
-    }()
+final class SpotlightView: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,22 +24,22 @@ open class SpotlightView: UIView {
         layer.mask = maskLayer
     }
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         maskLayer.frame = frame
     }
 
-    open func appear(_ node: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) -> CGRect {
+    func appear(_ node: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) -> CGRect {
         maskLayer.add(appearAnimation(duration, node: node), forKey: nil)
         return node.target.targetView.frame
     }
 
-    open func disappear(_ node: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) -> CGRect {
+    func disappear(_ node: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) -> CGRect {
         maskLayer.add(disappearAnimation(duration, node: node), forKey: nil)
         return node.target.targetView.frame
     }
 
-    open func move(_ toNode: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration, moveType: SpotlightMoveType = .direct) -> CGRect {
+    func move(_ toNode: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration, moveType: SpotlightMoveType = .direct) -> CGRect {
         switch moveType {
         case .direct:
             moveDirect(toNode, duration: duration)
@@ -55,6 +48,13 @@ open class SpotlightView: UIView {
         }
         return toNode.target.targetView.frame
     }
+
+    fileprivate lazy var maskLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.fillRule = kCAFillRuleEvenOdd
+        layer.fillColor = UIColor.black.cgColor
+        return layer
+    }()
 }
 
 fileprivate extension SpotlightView {
@@ -87,12 +87,12 @@ fileprivate extension SpotlightView {
 
     func disappearAnimation(_ duration: TimeInterval, node: SpotlightNode) -> CAAnimation {
         let endPath = maskPath(node.target.infinitesmalPath(translater: self))
-        return pathAnimation(duration, beginPath:nil, endPath: endPath)
+        return pathAnimation(duration, beginPath: nil, endPath: endPath)
     }
 
     func moveAnimation(_ duration: TimeInterval, toNode: SpotlightNode) -> CAAnimation {
         let endPath = maskPath(toNode.target.path(translater: self))
-        return pathAnimation(duration, beginPath:nil, endPath: endPath)
+        return pathAnimation(duration, beginPath: nil, endPath: endPath)
     }
 
     func pathAnimation(_ duration: TimeInterval, beginPath: UIBezierPath?, endPath: UIBezierPath) -> CAAnimation {
@@ -109,7 +109,7 @@ fileprivate extension SpotlightView {
     }
 }
 
-public enum SpotlightMoveType {
+enum SpotlightMoveType {
     case direct
     case disappear
 }
