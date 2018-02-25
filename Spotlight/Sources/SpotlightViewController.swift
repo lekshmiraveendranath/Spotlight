@@ -85,7 +85,10 @@ extension SpotlightViewController {
     }
 
     func previousSpotlight() {
-        guard currentNodeIndex > 0 else { return }
+        if currentNodeIndex == 0 {
+            dismiss(animated: true, completion: nil)
+            return
+        }
         currentNodeIndex -= 1
         showSpotlight()
     }
