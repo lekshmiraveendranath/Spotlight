@@ -21,5 +21,4 @@ public struct SpotlightNode {
         self.text = text
         self.target = target
     }
-
 }

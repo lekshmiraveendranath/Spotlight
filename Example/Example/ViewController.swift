@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var spotlightLabel: UILabel!
     @IBOutlet weak var verticalView: UIView!
-    
+
     @IBAction func startTutorial() {
 
         Spotlight.delay = 5.0
@@ -29,9 +29,7 @@ class ViewController: UIViewController {
         let n4 = SpotlightNode(text: "The Info view can move around to prevent intersection with spotlight", target: .view(verticalView))
         let n5 = SpotlightNode(text: "The End", target: .view(spotlightLabel))
 
-         let nodes = [n0, n1, n2, n3, n4, n5]
-         Spotlight().startIntro(from: self, withNodes: nodes)
+        let nodes = [n0, n1, n2, n3, n4, n5]
+        Spotlight().startIntro(from: self, withNodes: nodes)
     }
-
 }
-

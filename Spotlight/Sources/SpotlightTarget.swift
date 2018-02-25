@@ -41,7 +41,7 @@ public enum SpotlightTarget {
     func path(translater: UIView) -> UIBezierPath {
         let translatedFrame = targetView.convert(targetView.bounds, to: translater)
         let spotlightFrame = translatedFrame.insetBy(dx: -8.0, dy: -8.0) // Add some breathing space for the spotlight
-        return UIBezierPath(roundedRect: spotlightFrame, cornerRadius:spotlightFrame.height / 2.0)
+        return UIBezierPath(roundedRect: spotlightFrame, cornerRadius: spotlightFrame.height / 2.0)
     }
 
     func infinitesmalPath(translater: UIView) -> UIBezierPath {
@@ -49,5 +49,4 @@ public enum SpotlightTarget {
         let spotlightCenter = CGPoint(x: spotlightFrame.midX, y: spotlightFrame.midY)
         return UIBezierPath(roundedRect: CGRect(origin: spotlightCenter, size: CGSize.zero), cornerRadius: 0)
     }
-
 }

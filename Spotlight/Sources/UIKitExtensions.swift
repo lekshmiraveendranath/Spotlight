@@ -12,14 +12,13 @@ import UIKit
 public extension UIView {
 
     public func embedAndpin(to view: UIView) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         view.insertSubview(self, at: 0)
         NSLayoutConstraint.activate([
             leadingAnchor.constraint(equalTo: view.leadingAnchor),
             trailingAnchor.constraint(equalTo: view.trailingAnchor),
             topAnchor.constraint(equalTo: view.topAnchor),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
-
 }
