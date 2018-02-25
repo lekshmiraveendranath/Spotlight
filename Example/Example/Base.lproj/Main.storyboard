@@ -21,20 +21,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Wha-OU-3b4">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotlight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="nTu-q0-rPh">
-                                <rect key="frame" x="77.666666666666686" y="208" width="220" height="60"/>
+                                <rect key="frame" x="77.666666666666686" y="120" width="220" height="60"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="46"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7o-NU-QC2">
-                                <rect key="frame" x="254" y="671" width="105" height="35"/>
+                                <rect key="frame" x="254" y="583" width="105" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="18"/>
                                 <state key="normal" title="Start Tutorial">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqJ-pZ-8Wj">
-                                <rect key="frame" x="179.66666666666666" y="643" width="16" height="90"/>
+                                <rect key="frame" x="179.66666666666666" y="555" width="16" height="90"/>
                                 <color key="backgroundColor" red="0.047058823529411764" green="0.24313725490196078" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -63,8 +63,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O7o-NU-QC2" secondAttribute="trailing" constant="16" id="HWQ-nw-HU4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wha-OU-3b4" secondAttribute="trailing" id="Vh4-mS-Qa7"/>
                             <constraint firstItem="WqJ-pZ-8Wj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y74-BX-mtI"/>
-                            <constraint firstItem="Wha-OU-3b4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gig-Oa-kn8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wha-OU-3b4" secondAttribute="bottom" id="o1A-ux-fbW"/>
+                            <constraint firstItem="Wha-OU-3b4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gig-Oa-kn8"/>
+                            <constraint firstAttribute="bottom" secondItem="Wha-OU-3b4" secondAttribute="bottom" id="o1A-ux-fbW"/>
                             <constraint firstItem="Wha-OU-3b4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oMF-Fi-MgO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -91,10 +91,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jdP-K4-PsP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qnZ-rb-txg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="qnZ-rb-txg">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.047058823529411764" green="0.24444955065359478" blue="0.55719177645016338" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.047058823530000002" green="0.24444955069999999" blue="0.55719177649999996" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
