@@ -19,7 +19,7 @@ enum ButtonTitles: String {
 extension SpotlightViewController {
 
     func setup() {
-        modalPresentationStyle = .overCurrentContext
+        modalPresentationStyle = .overFullScreen
     }
 
     func setupSpotlightView() {
