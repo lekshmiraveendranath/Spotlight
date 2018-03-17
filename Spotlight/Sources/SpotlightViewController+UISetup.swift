@@ -81,9 +81,9 @@ extension SpotlightViewController {
 
     func createButton() -> UIButton {
         let button = UIButton()
-        button.titleLabel?.font = spotlightNodes.first?.font.withSize(12)
-        button.setTitleColor(spotlightNodes.first?.textColor, for: .normal)
-        button.layer.borderColor = spotlightNodes.first?.textColor.cgColor
+        button.titleLabel?.font = Spotlight.font.withSize(12)
+        button.setTitleColor(Spotlight.textColor, for: .normal)
+        button.layer.borderColor = Spotlight.textColor.cgColor
         button.layer.cornerRadius = 5.0
         button.layer.borderWidth = 1.0
         button.widthAnchor.constraint(equalToConstant: 44).isActive = true
@@ -95,8 +95,8 @@ extension SpotlightViewController {
     func createLabel() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = spotlightNodes.first?.font
-        label.textColor = spotlightNodes.first?.textColor
+        label.font = Spotlight.font
+        label.textColor = Spotlight.textColor
         label.textAlignment = .center
         return label
     }

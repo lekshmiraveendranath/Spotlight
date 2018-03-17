@@ -14,9 +14,6 @@ public struct SpotlightNode {
     var text: String
     var target: SpotlightTarget
 
-    public var textColor: UIColor = .white
-    public var font: UIFont = UIFont(name: "Futura", size: 18)!
-
     public init(text: String, target: SpotlightTarget) {
         self.text = text
         self.target = target
