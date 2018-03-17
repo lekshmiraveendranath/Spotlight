@@ -24,7 +24,7 @@ extension SpotlightViewController {
 
     func setupSpotlightView() {
         spotlightView.frame = UIScreen.main.bounds
-        spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: Spotlight.alpha)
         spotlightView.isUserInteractionEnabled = false
         view.insertSubview(spotlightView, at: 0)
         view.addConstraints([NSLayoutAttribute.top, .bottom, .left, .right].map {
