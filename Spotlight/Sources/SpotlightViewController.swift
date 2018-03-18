@@ -59,14 +59,14 @@ extension SpotlightViewController {
 
     @objc func buttonPressed(_ button: UIButton) {
         timer.invalidate()
-        guard let title = button.titleLabel?.text else { return }
+        let title = button.titleLabel?.text ?? ""
         switch title {
         case ButtonTitles.next.rawValue:
             nextSpotlight()
         case ButtonTitles.back.rawValue:
             previousSpotlight()
         default:
-            break
+            dismissSpotlight()
         }
     }
 
@@ -77,7 +77,7 @@ extension SpotlightViewController {
 
     @objc func nextSpotlight() {
         if currentNodeIndex == spotlightNodes.count - 1 {
-            dismiss(animated: true, completion: nil)
+            dismissSpotlight()
             return
         }
         currentNodeIndex += 1
@@ -86,7 +86,7 @@ extension SpotlightViewController {
 
     func previousSpotlight() {
         if currentNodeIndex == 0 {
-            dismiss(animated: true, completion: nil)
+            dismissSpotlight()
             return
         }
         currentNodeIndex -= 1
@@ -123,4 +123,9 @@ extension SpotlightViewController {
             self.view.layoutIfNeeded()
         })
     }
+
+    func dismissSpotlight() {
+        dismiss(animated: true, completion: nil)
+    }
+
 }

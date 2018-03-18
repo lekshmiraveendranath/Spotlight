@@ -33,21 +33,27 @@ extension SpotlightViewController {
     }
 
     func setupInfoView() {
+        let closeButton = createCloseButton()
+        let closeStackView = UIStackView(arrangedSubviews: [createSpacer(), closeButton])
+        closeStackView.axis = .horizontal
+        closeStackView.alignment = .trailing
+        closeStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+
+        infoLabel = createLabel()
+
         let backButton = createButton()
         backButton.setTitle(ButtonTitles.back.rawValue, for: .normal)
         let nextButton = createButton()
         nextButton.setTitle(ButtonTitles.next.rawValue, for: .normal)
-        let spacerView = UIView()
-        spacerView.backgroundColor = .clear
-        let buttonsStack = UIStackView(arrangedSubviews: [backButton, spacerView, nextButton])
+        let buttonsStack = UIStackView(arrangedSubviews: [backButton, createSpacer(), nextButton])
         buttonsStack.axis = .horizontal
-        buttonsStack.distribution = .fill
 
-        infoLabel = createLabel()
-        infoStackView = UIStackView(arrangedSubviews: [infoLabel, buttonsStack])
+        let combinedStackView = UIStackView(arrangedSubviews: [infoLabel, buttonsStack])
+        combinedStackView.axis = .vertical
+        combinedStackView.spacing = 8
+
+        infoStackView = UIStackView(arrangedSubviews: [closeStackView, combinedStackView])
         infoStackView.axis = .vertical
-        infoStackView.distribution = .fill
-        infoStackView.spacing = 8
         infoStackView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         infoStackView.isLayoutMarginsRelativeArrangement = true
 
@@ -87,9 +93,31 @@ extension SpotlightViewController {
         button.layer.cornerRadius = 5.0
         button.layer.borderWidth = 1.0
         button.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        button.setContentHuggingPriority(UILayoutPriority.init(1000), for: .horizontal)
         button.addTarget(self, action: #selector(SpotlightViewController.buttonPressed(_:)), for: .touchUpInside)
 
         return button
+    }
+
+    func createCloseButton() -> UIButton {
+        let button = UIButton()
+        let image = UIImage(named: "Close", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        button.setImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageView?.tintColor = Spotlight.textColor
+        button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        button.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        button.setContentHuggingPriority(UILayoutPriority.init(1000), for: .horizontal)
+        button.addTarget(self, action: #selector(SpotlightViewController.buttonPressed(_:)), for: .touchUpInside)
+
+        return button
+    }
+
+    func createSpacer() -> UIView {
+        let spacerView = UIView()
+        spacerView.setContentHuggingPriority(UILayoutPriority(rawValue: 0), for: .horizontal)
+        spacerView.backgroundColor = .clear
+        return spacerView
     }
 
     func createLabel() -> UILabel {
