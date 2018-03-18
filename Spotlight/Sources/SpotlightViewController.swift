@@ -105,7 +105,7 @@ extension SpotlightViewController {
             targetRect = spotlightView.move(node)
         }
 
-        infoLabel.text = node.text.isEmpty ? " " : node.text
+        infoLabel.text = node.text
 
         // Animate the info box around if intersects with spotlight
         view.layoutIfNeeded()
