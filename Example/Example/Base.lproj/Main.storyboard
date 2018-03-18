@@ -45,7 +45,7 @@
                             </button>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqJ-pZ-8Wj">
                                 <rect key="frame" x="179.66666666666666" y="555" width="16" height="90"/>
-                                <color key="backgroundColor" red="0.047058823529411764" green="0.24313725490196078" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.31464830890000001" blue="0.57869848319999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="HD7-pT-v4l"/>
