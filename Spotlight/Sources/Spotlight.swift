@@ -14,9 +14,11 @@ public struct Spotlight {
     public static var delay: TimeInterval = 3.0
     public static var animationDuration: TimeInterval = 0.25
     public static var alpha: CGFloat = 0.6
-    public static var showInfoBackground: Bool = true
+    public static var backgroundColor: UIColor = .black
     public static var textColor: UIColor = .white
     public static var font: UIFont = UIFont(name: "Futura", size: 18)!
+    public static var showInfoBackground: Bool = true
+    public static var infoBackgroundEffect: UIBlurEffectStyle = .light
 
     public init() {}
 

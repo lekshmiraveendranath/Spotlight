@@ -24,7 +24,8 @@ extension SpotlightViewController {
 
     func setupSpotlightView() {
         spotlightView.frame = UIScreen.main.bounds
-        spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: Spotlight.alpha)
+        spotlightView.backgroundColor = Spotlight.backgroundColor
+        spotlightView.alpha = Spotlight.alpha
         spotlightView.isUserInteractionEnabled = false
         view.insertSubview(spotlightView, at: 0)
         view.addConstraints([NSLayoutAttribute.top, .bottom, .left, .right].map {
@@ -58,7 +59,7 @@ extension SpotlightViewController {
         infoStackView.isLayoutMarginsRelativeArrangement = true
 
         if Spotlight.showInfoBackground {
-            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffect = UIBlurEffect(style: Spotlight.infoBackgroundEffect)
             let blurredEffectView = UIVisualEffectView(effect: blurEffect)
             let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
             let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
