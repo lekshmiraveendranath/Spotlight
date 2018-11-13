@@ -18,7 +18,7 @@ public struct Spotlight {
     public static var textColor: UIColor = .white
     public static var font: UIFont = UIFont(name: "Futura", size: 18)!
     public static var showInfoBackground: Bool = true
-    public static var infoBackgroundEffect: UIBlurEffectStyle = .light
+    public static var infoBackgroundEffect: UIBlurEffect.Style = .light
 
     public init() {}
 
