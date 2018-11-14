@@ -12,6 +12,7 @@ import UIKit
 final class SpotlightViewController: UIViewController {
 
     var spotlightNodes: [SpotlightNode] = []
+    weak var delegate: SpotlightDelegate?
 
     // MARK: - View Controller Life cycle
 
@@ -104,6 +105,8 @@ extension SpotlightViewController {
         default:
             targetRect = spotlightView.move(node)
         }
+
+        delegate?.didAdvance(to: currentNodeIndex + 1, of: spotlightNodes.count)
 
         infoLabel.text = node.text
 

@@ -30,6 +30,15 @@ class ViewController: UIViewController {
         let n5 = SpotlightNode(text: "The End", target: .view(spotlightLabel))
 
         let nodes = [n0, n1, n2, n3, n4, n5]
-        Spotlight().startIntro(from: self, withNodes: nodes)
+
+        let spotlight = Spotlight()
+        spotlight.delegate = self
+        spotlight.startIntro(from: self, withNodes: nodes)
+    }
+}
+
+extension ViewController: SpotlightDelegate {
+    func didAdvance(to: Int, of total: Int) {
+        print("Showing spotlight \(to) of \(total)")
     }
 }

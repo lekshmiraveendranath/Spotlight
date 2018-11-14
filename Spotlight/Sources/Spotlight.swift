@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-public struct Spotlight {
+public protocol SpotlightDelegate: class {
+    func didAdvance(to: Int, of total: Int)
+}
+
+public final class Spotlight {
 
     public static var delay: TimeInterval = 3.0
     public static var animationDuration: TimeInterval = 0.25
@@ -20,11 +24,14 @@ public struct Spotlight {
     public static var showInfoBackground: Bool = true
     public static var infoBackgroundEffect: UIBlurEffect.Style = .light
 
+    public weak var delegate: SpotlightDelegate?
+
     public init() {}
 
     public func startIntro(from controller: UIViewController, withNodes nodes: [SpotlightNode]) {
         guard nodes.count > 0 else { return }
         vc.spotlightNodes = nodes
+        vc.delegate = delegate
         controller.present(vc, animated: true, completion: nil)
     }
 
