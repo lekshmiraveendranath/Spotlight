@@ -11,6 +11,7 @@ import UIKit
 
 public protocol SpotlightDelegate: class {
     func didAdvance(to: Int, of total: Int)
+    func didDismiss()
 }
 
 public final class Spotlight {

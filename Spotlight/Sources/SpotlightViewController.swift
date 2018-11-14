@@ -129,6 +129,7 @@ extension SpotlightViewController {
 
     func dismissSpotlight() {
         dismiss(animated: true, completion: nil)
+        delegate?.didDismiss()
     }
 
 }
