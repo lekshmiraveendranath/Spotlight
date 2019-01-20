@@ -38,7 +38,13 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: SpotlightDelegate {
+
     func didAdvance(to: Int, of total: Int) {
-        print("Showing spotlight \(to) of \(total)")
+        print("Showing Spotlight \(to) of \(total)")
     }
+
+    func didDismiss() {
+        print("Spotlight was dimissed")
+    }
+
 }
