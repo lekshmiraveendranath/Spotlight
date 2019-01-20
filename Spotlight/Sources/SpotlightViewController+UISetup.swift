@@ -11,11 +11,6 @@ import UIKit
 
 // MARK: - UI Setup
 
-enum ButtonTitles: String {
-    case back = "Back"
-    case next = "Next"
-}
-
 extension SpotlightViewController {
 
     func setup() {
@@ -42,10 +37,10 @@ extension SpotlightViewController {
 
         infoLabel = createLabel()
 
-        let backButton = createButton()
-        backButton.setTitle(ButtonTitles.back.rawValue, for: .normal)
-        let nextButton = createButton()
-        nextButton.setTitle(ButtonTitles.next.rawValue, for: .normal)
+        backButton = createButton()
+        backButton.setTitle(Spotlight.backButtonTitle, for: .normal)
+        nextButton = createButton()
+        nextButton.setTitle(Spotlight.nextButtonTitle, for: .normal)
         let buttonsStack = UIStackView(arrangedSubviews: [backButton, createSpacer(), nextButton])
         buttonsStack.axis = .horizontal
 

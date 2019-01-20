@@ -13,6 +13,8 @@ final class SpotlightViewController: UIViewController {
 
     var spotlightNodes: [SpotlightNode] = []
     weak var delegate: SpotlightDelegate?
+    weak var backButton: UIButton!
+    weak var nextButton: UIButton!
 
     // MARK: - View Controller Life cycle
 
@@ -31,6 +33,14 @@ final class SpotlightViewController: UIViewController {
         setupSpotlightView()
         setupInfoView()
         setupTapGestureRecognizer()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if spotlightNodes.count == 1 {
+            backButton.isHidden = true
+            nextButton.isHidden = true
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -62,9 +72,9 @@ extension SpotlightViewController {
         timer.invalidate()
         let title = button.titleLabel?.text ?? ""
         switch title {
-        case ButtonTitles.next.rawValue:
+        case Spotlight.nextButtonTitle:
             nextSpotlight()
-        case ButtonTitles.back.rawValue:
+        case Spotlight.backButtonTitle:
             previousSpotlight()
         default:
             dismissSpotlight()
@@ -106,7 +116,8 @@ extension SpotlightViewController {
             targetRect = spotlightView.move(node)
         }
 
-        delegate?.didAdvance(to: currentNodeIndex + 1, of: spotlightNodes.count)
+        let newNodeIndex = currentNodeIndex + 1
+        delegate?.didAdvance(to: newNodeIndex, of: spotlightNodes.count)
 
         infoLabel.text = node.text
 

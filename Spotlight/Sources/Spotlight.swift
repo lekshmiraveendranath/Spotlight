@@ -24,6 +24,8 @@ public final class Spotlight {
     public static var font: UIFont = UIFont(name: "Futura", size: 18)!
     public static var showInfoBackground: Bool = true
     public static var infoBackgroundEffect: UIBlurEffect.Style = .light
+    public static var backButtonTitle = "Back"
+    public static var nextButtonTitle = "Next"
 
     public weak var delegate: SpotlightDelegate?
 
