@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "LRSpotlight"
-  s.version         = "1.5.0"
+  s.version         = "1.6.0"
   s.swift_version   = "4.2.0"
   s.license         = { :type => 'MIT', :file => "License.md" }
   s.summary         = "Introductory Walkthrough framework for iOS Apps"

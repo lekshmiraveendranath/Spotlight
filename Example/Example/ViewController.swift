@@ -9,7 +9,7 @@
 import UIKit
 import Spotlight
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet weak var spotlightLabel: UILabel!
     @IBOutlet weak var verticalView: UIView!
