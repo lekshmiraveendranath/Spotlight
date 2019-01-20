@@ -32,6 +32,16 @@ class ViewController: UIViewController {
             Spotlight().startIntro(from: self, withNodes: nodes)
     }
 }
+
+```
+
+Adopt ```SpotlightDelegate``` protocol to get a callback when each node is displayed and when spotlight goes offscreen.
+
+```swift
+public protocol SpotlightDelegate: class {
+    func didAdvance(to: Int, of total: Int)
+    func didDismiss()
+}
 ```
 
 ## Installation
@@ -53,8 +63,6 @@ github "lekshmiraveendranath/Spotlight"
 Spotlight.delay = 5.0
 // Animation duration for spotlight appearance (Defaults to 0.25 seconds)
 Spotlight.animationDuration = 0.1
-// Display a background for the info text view (defaults to true)
-Spotlight.showInfoBackground = true
 // Alpha of the Spotlight overlay (defaults to 0.6)
 Spotlight.alpha = 0.8
 // Background color of the Spotlight view (defaults to black)
@@ -63,16 +71,22 @@ Spotlight.backgroundColor = .grey
 Spotlight.textColor = .green
 // Font used inside the info view (defaults to Futura 18pt)
 Spotlight.font = UIFont(name: "Lato", size: 18)!
+// Display a background for the info text view (defaults to true)
+Spotlight.showInfoBackground = true
 // The info overlay has a blur effect to make it stand out and be readable across the board (defaults to light)
 Spotlight.infoBackgroundEffect = .dark
+// Change back and next button titles
+Spotlight.backButtonTitle = "atrás"
+Spotlight.nextButtonTitle = "siguiente"
 ```
+
 
 ## Features
 
 - [x] Easy to integrate, just few lines of code
-- [x] Code based Spotlights, no need for an additional storyboard scene per screen for laying out text as in Gecco
+- [x] Code based Spotlights, no need for an additional storyboard scene per screen for laying out text
 - [x] Timer based automatic forwarding (configurable)
 - [x] Convenience initializers for views, bar buttons, tab bar items, plus spotlights using points or rects
 - [x] Compatible with UI Version testing, since Spotlights are displayed over UI elements at runtime
-- [x] Swift 4
+- [x] Swift 4.2
 - [x] Sensible defaults, configurable
