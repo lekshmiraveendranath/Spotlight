@@ -106,6 +106,10 @@ extension SpotlightViewController {
 
     func showSpotlight() {
         let node = spotlightNodes[currentNodeIndex]
+
+        nextButton.isHidden = (currentNodeIndex == spotlightNodes.count - 1)
+        backButton.isHidden = (currentNodeIndex == 0)
+
         let targetRect: CGRect
         switch currentNodeIndex {
         case 0:

@@ -39,6 +39,7 @@ extension SpotlightViewController {
 
         backButton = createButton()
         backButton.setTitle(Spotlight.backButtonTitle, for: .normal)
+        backButton.isHidden = true // Will be shown later
         nextButton = createButton()
         nextButton.setTitle(Spotlight.nextButtonTitle, for: .normal)
         let buttonsStack = UIStackView(arrangedSubviews: [backButton, createSpacer(), nextButton])
@@ -46,12 +47,13 @@ extension SpotlightViewController {
 
         let combinedStackView = UIStackView(arrangedSubviews: [infoLabel, buttonsStack])
         combinedStackView.axis = .vertical
-        combinedStackView.spacing = 8
+        combinedStackView.spacing = 10
 
         infoStackView = UIStackView(arrangedSubviews: [closeStackView, combinedStackView])
         infoStackView.axis = .vertical
         infoStackView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         infoStackView.isLayoutMarginsRelativeArrangement = true
+        infoStackView.spacing = 10
 
         if Spotlight.showInfoBackground {
             let blurEffect = UIBlurEffect(style: Spotlight.infoBackgroundEffect)
