@@ -9,7 +9,6 @@
 import Foundation
 
 public enum SpotlightTarget {
-
     case view(UIView)
     case barButton(UIBarButtonItem)
     case tabBarItem(UITabBarController, Int)

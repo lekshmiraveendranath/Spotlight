@@ -9,7 +9,6 @@
 import UIKit
 
 final class SpotlightView: UIView {
-
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -58,7 +57,6 @@ final class SpotlightView: UIView {
 }
 
 fileprivate extension SpotlightView {
-
     func moveDirect(_ toNode: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) {
         maskLayer.add(moveAnimation(duration, toNode: toNode), forKey: nil)
     }

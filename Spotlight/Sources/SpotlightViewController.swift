@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 final class SpotlightViewController: UIViewController {
-
     var spotlightNodes: [SpotlightNode] = []
     weak var delegate: SpotlightDelegate?
     weak var backButton: UIButton!
@@ -67,7 +66,6 @@ final class SpotlightViewController: UIViewController {
 // MARK: - User Actions
 
 extension SpotlightViewController {
-
     @objc func buttonPressed(_ button: UIButton) {
         timer.invalidate()
         let title = button.titleLabel?.text ?? ""
@@ -146,5 +144,4 @@ extension SpotlightViewController {
         dismiss(animated: true, completion: nil)
         delegate?.didDismiss()
     }
-
 }

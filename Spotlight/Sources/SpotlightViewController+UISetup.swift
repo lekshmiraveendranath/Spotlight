@@ -12,7 +12,6 @@ import UIKit
 // MARK: - UI Setup
 
 extension SpotlightViewController {
-
     func setup() {
         modalPresentationStyle = .overFullScreen
     }
@@ -91,7 +90,7 @@ extension SpotlightViewController {
         button.layer.cornerRadius = 5.0
         button.layer.borderWidth = 1.0
         button.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        button.setContentHuggingPriority(UILayoutPriority.init(1000), for: .horizontal)
+        button.setContentHuggingPriority(UILayoutPriority(1000), for: .horizontal)
         button.addTarget(self, action: #selector(SpotlightViewController.buttonPressed(_:)), for: .touchUpInside)
 
         return button
@@ -105,7 +104,7 @@ extension SpotlightViewController {
         button.imageView?.tintColor = Spotlight.textColor
         button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         button.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        button.setContentHuggingPriority(UILayoutPriority.init(1000), for: .horizontal)
+        button.setContentHuggingPriority(UILayoutPriority(1000), for: .horizontal)
         button.addTarget(self, action: #selector(SpotlightViewController.buttonPressed(_:)), for: .touchUpInside)
 
         return button

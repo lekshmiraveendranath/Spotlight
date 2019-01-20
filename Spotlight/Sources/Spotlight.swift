@@ -15,7 +15,6 @@ public protocol SpotlightDelegate: class {
 }
 
 public final class Spotlight {
-
     public static var delay: TimeInterval = 3.0
     public static var animationDuration: TimeInterval = 0.25
     public static var alpha: CGFloat = 0.6

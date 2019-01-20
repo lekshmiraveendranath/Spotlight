@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 public struct SpotlightNode {
-
     var text: String
     var target: SpotlightTarget
 
