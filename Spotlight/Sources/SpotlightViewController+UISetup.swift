@@ -34,8 +34,6 @@ extension SpotlightViewController {
         closeStackView.alignment = .trailing
         closeStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
-        infoLabel = createLabel()
-
         backButton = createButton()
         backButton.setTitle(Spotlight.backButtonTitle, for: .normal)
         backButton.isHidden = true // Will be shown later
@@ -44,6 +42,7 @@ extension SpotlightViewController {
         let buttonsStack = UIStackView(arrangedSubviews: [backButton, createSpacer(), nextButton])
         buttonsStack.axis = .horizontal
 
+        infoLabel = createLabel()
         let combinedStackView = UIStackView(arrangedSubviews: [infoLabel, buttonsStack])
         combinedStackView.axis = .vertical
         combinedStackView.spacing = 10
@@ -55,16 +54,7 @@ extension SpotlightViewController {
         infoStackView.spacing = 10
 
         if Spotlight.showInfoBackground {
-            let blurEffect = UIBlurEffect(style: Spotlight.infoBackgroundEffect)
-            let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-            let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-            let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
-            blurredEffectView.layer.cornerRadius = 10.0
-            vibrancyEffectView.layer.cornerRadius = 10.0
-            blurredEffectView.clipsToBounds = true
-            vibrancyEffectView.clipsToBounds = true
-            blurredEffectView.embedAndpin(to: infoStackView)
-            vibrancyEffectView.embedAndpin(to: infoStackView)
+            insertBackgroundBlur()
         }
 
         view.addSubview(infoStackView)
@@ -124,6 +114,19 @@ extension SpotlightViewController {
         label.textColor = Spotlight.textColor
         label.textAlignment = .center
         return label
+    }
+
+    func insertBackgroundBlur() {
+        let blurEffect = UIBlurEffect(style: Spotlight.infoBackgroundEffect)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+        blurredEffectView.layer.cornerRadius = 10.0
+        vibrancyEffectView.layer.cornerRadius = 10.0
+        blurredEffectView.clipsToBounds = true
+        vibrancyEffectView.clipsToBounds = true
+        blurredEffectView.embedAndpin(to: infoStackView)
+        vibrancyEffectView.embedAndpin(to: infoStackView)
     }
 
     func setupTapGestureRecognizer() {

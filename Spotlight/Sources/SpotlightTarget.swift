@@ -21,7 +21,7 @@ public enum SpotlightTarget {
         case let .view(view):
             target = view
         case let .barButton(barButtonItem):
-            target = barButtonItem.value(forKey: "view") as! UIView
+            target = (barButtonItem.value(forKey: "view") as? UIView) ?? UIView()
         case let .tabBarItem(tabBarController, index):
             let tabBarItems = tabBarController.tabBar.subviews.filter({ $0.isUserInteractionEnabled })
             guard index > -1, tabBarItems.count > index else { return UIView() }

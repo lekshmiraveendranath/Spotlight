@@ -102,6 +102,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 413B98E42029857F00EF3606 /* Build configuration list for PBXNativeTarget "Spotlight" */;
 			buildPhases = (
+				415DF0CE22277A9400A74047 /* Format Code */,
+				415DF0CD22277A7000A74047 /* Lint */,
 				413B98D72029857F00EF3606 /* Sources */,
 				413B98D82029857F00EF3606 /* Frameworks */,
 				413B98D92029857F00EF3606 /* Headers */,
@@ -159,6 +161,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		415DF0CD22277A7000A74047 /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		415DF0CE22277A9400A74047 /* Format Code */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Format Code";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\nif which swiftformat >/dev/null; then\nswiftformat . --swiftversion 4.2\nelse\necho \"warning: Swiftformat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		413B98D72029857F00EF3606 /* Sources */ = {

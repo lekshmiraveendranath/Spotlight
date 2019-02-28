@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public protocol SpotlightDelegate: class {
-    func didAdvance(to: Int, of total: Int)
+    func didAdvance(to node: Int, of total: Int)
     func didDismiss()
 }
 
@@ -31,11 +31,11 @@ public final class Spotlight {
     public init() {}
 
     public func startIntro(from controller: UIViewController, withNodes nodes: [SpotlightNode]) {
-        guard nodes.count > 0 else { return }
-        vc.spotlightNodes = nodes
-        vc.delegate = delegate
-        controller.present(vc, animated: true, completion: nil)
+        guard !nodes.isEmpty else { return }
+        spotlightVC.spotlightNodes = nodes
+        spotlightVC.delegate = delegate
+        controller.present(spotlightVC, animated: true, completion: nil)
     }
 
-    private let vc = SpotlightViewController()
+    private let spotlightVC = SpotlightViewController()
 }

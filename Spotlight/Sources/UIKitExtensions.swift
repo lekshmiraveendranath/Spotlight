@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public extension UIView {
-    public func embedAndpin(to view: UIView) {
+    func embedAndpin(to view: UIView) {
         translatesAutoresizingMaskIntoConstraints = false
         view.insertSubview(self, at: 0)
         NSLayoutConstraint.activate([
