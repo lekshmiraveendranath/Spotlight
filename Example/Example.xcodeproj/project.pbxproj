@@ -12,6 +12,7 @@
 		413B99062029883300EF3606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413B99042029883300EF3606 /* Main.storyboard */; };
 		413B99082029883300EF3606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413B99072029883300EF3606 /* Assets.xcassets */; };
 		413B990B2029883300EF3606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413B99092029883300EF3606 /* LaunchScreen.storyboard */; };
+		415DF0D02227803D00A74047 /* SpotlightWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415DF0CF2227803D00A74047 /* SpotlightWrapper.swift */; };
 		417F12BF202A2B7D003753ED /* Spotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417F12C0202A2B7D003753ED /* Spotlight.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		413B99072029883300EF3606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		413B990A2029883300EF3606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413B990C2029883300EF3606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		415DF0CF2227803D00A74047 /* SpotlightWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotlightWrapper.swift; path = /Users/dmukundan/Documents/Workspace/Personal/Spotlight/Example/Example/SpotlightWrapper.swift; sourceTree = "<absolute>"; };
 		417F12C0202A2B7D003753ED /* Spotlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Spotlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,7 @@
 			children = (
 				413B99002029883300EF3606 /* AppDelegate.swift */,
 				413B99022029883300EF3606 /* ViewController.swift */,
+				415DF0CF2227803D00A74047 /* SpotlightWrapper.swift */,
 				413B99042029883300EF3606 /* Main.storyboard */,
 				413B99072029883300EF3606 /* Assets.xcassets */,
 				413B99092029883300EF3606 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415DF0D02227803D00A74047 /* SpotlightWrapper.swift in Sources */,
 				413B99032029883300EF3606 /* ViewController.swift in Sources */,
 				413B99012029883300EF3606 /* AppDelegate.swift in Sources */,
 			);
