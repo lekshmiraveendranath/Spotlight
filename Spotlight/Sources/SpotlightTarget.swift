@@ -23,7 +23,7 @@ public enum SpotlightTarget {
         case let .barButton(barButtonItem):
             target = (barButtonItem.value(forKey: "view") as? UIView) ?? UIView()
         case let .tabBarItem(tabBarController, index):
-            let tabBarItems = tabBarController.tabBar.subviews.filter({ $0.isUserInteractionEnabled })
+            let tabBarItems = tabBarController.tabBar.subviews.filter { $0.isUserInteractionEnabled }
             guard index > -1, tabBarItems.count > index else { return UIView() }
             let tabBarItemView = tabBarItems[index]
             let frame = CGRect(x: tabBarItemView.frame.midX - 22, y: tabBarController.tabBar.frame.origin.y, width: 44, height: 44)
@@ -37,15 +37,25 @@ public enum SpotlightTarget {
         return target
     }
 
-    func path(translater: UIView) -> UIBezierPath {
+    func path(node: SpotlightNode, translater: UIView) -> UIBezierPath {
         let translatedFrame = targetView.convert(targetView.bounds, to: translater)
         let spotlightFrame = translatedFrame.insetBy(dx: -8.0, dy: -8.0) // Add some breathing space for the spotlight
-        return UIBezierPath(roundedRect: spotlightFrame, cornerRadius: spotlightFrame.height / 2.0)
+
+        if node.roundedCorners {
+            return UIBezierPath(roundedRect: spotlightFrame, cornerRadius: spotlightFrame.height / 2.0)
+        } else {
+            return UIBezierPath(rect: spotlightFrame)
+        }
     }
 
-    func infinitesmalPath(translater: UIView) -> UIBezierPath {
+    func infinitesmalPath(node: SpotlightNode, translater: UIView) -> UIBezierPath {
         let spotlightFrame = targetView.convert(targetView.bounds, to: translater)
         let spotlightCenter = CGPoint(x: spotlightFrame.midX, y: spotlightFrame.midY)
-        return UIBezierPath(roundedRect: CGRect(origin: spotlightCenter, size: CGSize.zero), cornerRadius: 0)
+
+        if node.roundedCorners {
+            return UIBezierPath(roundedRect: CGRect(origin: spotlightCenter, size: CGSize.zero), cornerRadius: 0)
+        } else {
+            return UIBezierPath(rect: CGRect(origin: spotlightCenter, size: CGSize.zero))
+        }
     }
 }
