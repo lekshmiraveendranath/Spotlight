@@ -12,9 +12,11 @@ import UIKit
 public struct SpotlightNode {
     var text: String
     var target: SpotlightTarget
+    var roundedCorners: Bool
 
-    public init(text: String, target: SpotlightTarget) {
+    public init(text: String, target: SpotlightTarget, roundedCorners: Bool = true) {
         self.text = text
         self.target = target
+        self.roundedCorners = roundedCorners
     }
 }

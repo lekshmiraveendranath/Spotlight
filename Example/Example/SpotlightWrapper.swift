@@ -33,9 +33,12 @@ final class SpotlightWrapper: NSObject {
             let leftBB1 = viewController.navigationItem.leftBarButtonItem,
             let navBar = viewController.navigationController?.navigationBar else { return }
 
-        let node0 = SpotlightNode(text: "Sit back and let Spotlight auto advance, or tap anywhere on screen to advance manually", target: .point(.zero, radius: 0))
-        let node1 = SpotlightNode(text: "Show spotlight on a bar button item", target: .barButton(leftBB1))
-        let node2 = SpotlightNode(text: "Moved spotlight to the title using a point and radius", target: .point(CGPoint(x: viewController.view.bounds.width / 2.0, y: navBar.frame.midY), radius: 30))
+        let node0 = SpotlightNode(text: "Sit back and let Spotlight auto advance, or tap anywhere on screen to advance manually",
+                                  target: .point(.zero, radius: 0))
+        let node1 = SpotlightNode(text: "Show spotlight on a bar button item",
+                                  target: .barButton(leftBB1), roundedCorners: false)
+        let node2 = SpotlightNode(text: "Moved spotlight to the title using a point and radius",
+                                  target: .point(CGPoint(x: viewController.view.bounds.width / 2.0, y: navBar.frame.midY), radius: 30))
         let node3 = SpotlightNode(text: "Moved the spotlight again. Targets can be views, barbuttons, tab bar items, points and more", target: .barButton(rightBB1))
         let node4 = SpotlightNode(text: "The Info view can move around to prevent intersection with spotlight", target: .view(viewController.verticalView))
         let node5 = SpotlightNode(text: "The End", target: .view(viewController.spotlightLabel))
