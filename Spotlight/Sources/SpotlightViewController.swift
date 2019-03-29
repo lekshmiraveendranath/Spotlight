@@ -12,8 +12,8 @@ import UIKit
 final class SpotlightViewController: UIViewController {
     var spotlightNodes: [SpotlightNode] = []
     weak var delegate: SpotlightDelegate?
-    weak var backButton: UIButton!
-    weak var nextButton: UIButton!
+    var backButton: UIButton!
+    var nextButton: UIButton!
 
     // MARK: - View Controller Life cycle
 
@@ -26,7 +26,7 @@ final class SpotlightViewController: UIViewController {
         super.init(coder: aDecoder)
         setup()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSpotlightView()
@@ -45,6 +45,7 @@ final class SpotlightViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         nextSpotlight()
+
         timer = Timer.scheduledTimer(timeInterval: Spotlight.delay, target: self, selector: #selector(nextSpotlight), userInfo: nil, repeats: true)
     }
 
@@ -52,6 +53,13 @@ final class SpotlightViewController: UIViewController {
         super.viewWillDisappear(animated)
         spotlightView.isHidden = true
         timer.invalidate()
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        // Redraw spotlight for the new dimention
+        spotlightView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        showSpotlight()
     }
 
     let spotlightView = SpotlightView()
