@@ -26,11 +26,7 @@ final class SpotlightViewController: UIViewController {
         super.init(coder: aDecoder)
         setup()
     }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSpotlightView()
