@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol SpotlightDelegate: class {
+public protocol SpotlightDelegate: AnyObject {
     func didAdvance(to node: Int, of total: Int)
     func didDismiss()
 }

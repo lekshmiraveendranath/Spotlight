@@ -26,7 +26,7 @@ final class SpotlightViewController: UIViewController {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSpotlightView()
@@ -134,17 +134,17 @@ extension SpotlightViewController {
         // Animate the info box around if intersects with spotlight
         view.layoutIfNeeded()
         UIView.animate(withDuration: Spotlight.animationDuration, animations: { [weak self] in
-            guard let `self` = self else { return }
-            if targetRect.intersects(self.infoStackView.frame) {
-                if self.infoStackTopConstraint.priority == .defaultLow {
-                    self.infoStackTopConstraint.priority = .defaultHigh
-                    self.infoStackBottomConstraint.priority = .defaultLow
+            guard let this = self else { return }
+            if targetRect.intersects(this.infoStackView.frame) {
+                if this.infoStackTopConstraint.priority == .defaultLow {
+                    this.infoStackTopConstraint.priority = .defaultHigh
+                    this.infoStackBottomConstraint.priority = .defaultLow
                 } else {
-                    self.infoStackTopConstraint.priority = .defaultLow
-                    self.infoStackBottomConstraint.priority = .defaultHigh
+                    this.infoStackTopConstraint.priority = .defaultLow
+                    this.infoStackBottomConstraint.priority = .defaultHigh
                 }
             }
-            self.view.layoutIfNeeded()
+            this.view.layoutIfNeeded()
         })
     }
 
