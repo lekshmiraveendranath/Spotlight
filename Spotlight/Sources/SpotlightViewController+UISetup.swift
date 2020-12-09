@@ -44,6 +44,9 @@ extension SpotlightViewController {
         buttonsStack.axis = .horizontal
 
         infoLabel = createLabel()
+        if let firstNode = spotlightNodes.first {
+            infoLabel.text = firstNode.text
+        }
         let combinedStackView = UIStackView(arrangedSubviews: [infoLabel, buttonsStack])
         combinedStackView.axis = .vertical
         combinedStackView.spacing = 10
