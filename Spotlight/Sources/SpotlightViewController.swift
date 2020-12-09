@@ -44,9 +44,24 @@ final class SpotlightViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        nextSpotlight()
+        
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            guard let self = self else { return }
+            
+            self.infoStackBottomConstraint.constant = -44
+            self.spotlightView.backgroundColor = Spotlight.backgroundColor
+            
+            self.view.layoutIfNeeded()
+        }
+        
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(setupFirstSpotlight), userInfo: nil, repeats: false)
+    }
+    
+    @objc
+    private func setupFirstSpotlight() {
+        self.nextSpotlight()
 
-        timer = Timer.scheduledTimer(timeInterval: Spotlight.delay, target: self, selector: #selector(nextSpotlight), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: Spotlight.delay, target: self, selector: #selector(self.nextSpotlight), userInfo: nil, repeats: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

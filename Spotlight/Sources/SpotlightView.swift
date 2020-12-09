@@ -9,19 +9,6 @@
 import UIKit
 
 final class SpotlightView: UIView {
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-
-    fileprivate func commonInit() {
-        layer.mask = maskLayer
-    }
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -29,12 +16,14 @@ final class SpotlightView: UIView {
     }
 
     func appear(_ node: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) -> CGRect {
-        maskLayer.add(appearAnimation(duration, node: node), forKey: nil)
+        layer.mask = maskLayer
+        maskLayer.add(appearAnimation(0, node: node), forKey: nil)
         return node.target.targetView.frame
     }
 
     func disappear(_ node: SpotlightNode, duration: TimeInterval = Spotlight.animationDuration) -> CGRect {
-        maskLayer.add(disappearAnimation(duration, node: node), forKey: nil)
+        maskLayer.add(disappearAnimation(0, node: node), forKey: nil)
+        layer.mask = nil
         return node.target.targetView.frame
     }
 

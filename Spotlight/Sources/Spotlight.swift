@@ -34,7 +34,7 @@ public final class Spotlight {
         guard !nodes.isEmpty else { return }
         spotlightVC.spotlightNodes = nodes
         spotlightVC.delegate = delegate
-        controller.present(spotlightVC, animated: true, completion: nil)
+        controller.present(spotlightVC, animated: false)
     }
 
     private let spotlightVC = SpotlightViewController()
