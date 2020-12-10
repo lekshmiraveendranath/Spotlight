@@ -10,8 +10,13 @@ import Foundation
 import UIKit
 
 public protocol SpotlightDelegate: AnyObject {
-    func didAdvance(to node: Int, of total: Int)
-    func didDismiss()
+    func spotlightDidAdvance(to node: Int, of total: Int)
+    func spotlightDidDismiss()
+}
+
+public extension SpotlightDelegate {
+    func didAdvance(to node: Int, of total: Int) {}
+    func didDismiss() {}
 }
 
 public final class Spotlight {
