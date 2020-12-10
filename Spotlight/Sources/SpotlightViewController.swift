@@ -142,7 +142,7 @@ extension SpotlightViewController {
         }
 
         let newNodeIndex = currentNodeIndex + 1
-        delegate?.didAdvance(to: newNodeIndex, of: spotlightNodes.count)
+        delegate?.spotlightDidAdvance(to: newNodeIndex, of: spotlightNodes.count)
 
         infoLabel.text = node.text
 
@@ -165,6 +165,6 @@ extension SpotlightViewController {
 
     func dismissSpotlight() {
         dismiss(animated: true, completion: nil)
-        delegate?.didDismiss()
+        delegate?.spotlightDidDismiss()
     }
 }
