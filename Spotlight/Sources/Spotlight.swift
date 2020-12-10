@@ -15,8 +15,8 @@ public protocol SpotlightDelegate: AnyObject {
 }
 
 public extension SpotlightDelegate {
-    func didAdvance(to node: Int, of total: Int) {}
-    func didDismiss() {}
+    func spotlightDidAdvance(to node: Int, of total: Int) {}
+    func spotlightDidDismiss() {}
 }
 
 public final class Spotlight {
