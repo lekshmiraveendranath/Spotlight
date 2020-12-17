@@ -121,6 +121,12 @@ extension SpotlightViewController {
     }
 
     func insertBackgroundBlur() {
+        if let gradient = Spotlight.infoBackgroundGradient {
+            gradient.cornerRadius = 10.0
+            infoStackView.layer.insertSublayer(gradient, at: 0)
+            return
+        }
+        
         let blurEffect = UIBlurEffect(style: Spotlight.infoBackgroundEffect)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
         let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)

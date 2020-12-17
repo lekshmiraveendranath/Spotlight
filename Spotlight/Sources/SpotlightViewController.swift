@@ -57,6 +57,13 @@ final class SpotlightViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(setupFirstSpotlight), userInfo: nil, repeats: false)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        Spotlight.infoBackgroundGradient?.frame = infoStackView.bounds
+        Spotlight.infoBackgroundGradient?.removeAllAnimations()
+    }
+    
     @objc
     private func setupFirstSpotlight() {
         self.nextSpotlight()
