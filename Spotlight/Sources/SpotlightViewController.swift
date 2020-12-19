@@ -68,7 +68,9 @@ final class SpotlightViewController: UIViewController {
     private func setupFirstSpotlight() {
         self.nextSpotlight()
 
-        self.timer = Timer.scheduledTimer(timeInterval: Spotlight.delay, target: self, selector: #selector(self.nextSpotlight), userInfo: nil, repeats: true)
+        if Spotlight.delay > 0 {
+            self.timer = Timer.scheduledTimer(timeInterval: Spotlight.delay, target: self, selector: #selector(self.nextSpotlight), userInfo: nil, repeats: true)
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
