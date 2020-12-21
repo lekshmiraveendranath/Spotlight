@@ -83,7 +83,7 @@ final class SpotlightViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         // Redraw spotlight for the new dimention
         spotlightView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        showSpotlight()
+        goToSpotlight(index: currentNodeIndex > 0 ? currentNodeIndex : 0)
     }
 
     let spotlightView = SpotlightView()
@@ -121,8 +121,7 @@ extension SpotlightViewController {
             dismissSpotlight()
             return
         }
-        currentNodeIndex += 1
-        showSpotlight()
+        goToSpotlight(index: currentNodeIndex + 1)
     }
 
     func previousSpotlight() {
@@ -130,23 +129,24 @@ extension SpotlightViewController {
             dismissSpotlight()
             return
         }
-        currentNodeIndex -= 1
-        showSpotlight()
+        goToSpotlight(index: currentNodeIndex - 1)
     }
 
-    func showSpotlight() {
+    private func goToSpotlight(index: Int) {
+        let previousNodeIndex = currentNodeIndex
+        currentNodeIndex = index
+        let previousTarget = previousNodeIndex >= 0 && previousNodeIndex < spotlightNodes.count ? spotlightNodes[previousNodeIndex].target : SpotlightTarget.none
         let node = spotlightNodes[currentNodeIndex]
 
         nextButton.isHidden = (currentNodeIndex == spotlightNodes.count - 1)
         backButton.isHidden = (currentNodeIndex == 0)
 
         let targetRect: CGRect
-        switch currentNodeIndex {
-        case 0:
+        if previousTarget == .none {
             targetRect = spotlightView.appear(node)
-        case let index where index == spotlightNodes.count:
+        } else if node.target == .none {
             targetRect = spotlightView.disappear(node)
-        default:
+        } else {
             targetRect = spotlightView.move(node)
         }
 

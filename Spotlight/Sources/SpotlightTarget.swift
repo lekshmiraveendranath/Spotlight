@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-public enum SpotlightTarget {
+public enum SpotlightTarget: Equatable {
+    case none
     case view(UIView)
     case barButton(UIBarButtonItem)
     case tabBarItem(UITabBarController, Int)
@@ -19,6 +20,8 @@ public enum SpotlightTarget {
     var targetView: UIView {
         let target: UIView
         switch self {
+        case .none:
+            target = UIView()
         case let .view(view):
             target = view
         case let .barButton(barButtonItem):
