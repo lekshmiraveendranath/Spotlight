@@ -10,8 +10,13 @@ import Foundation
 import UIKit
 
 public protocol SpotlightDelegate: AnyObject {
-    func didAdvance(to node: Int, of total: Int)
-    func didDismiss()
+    func spotlightDidAdvance(to node: Int, of total: Int)
+    func spotlightDidDismiss()
+}
+
+public extension SpotlightDelegate {
+    func spotlightDidAdvance(to node: Int, of total: Int) {}
+    func spotlightDidDismiss() {}
 }
 
 public final class Spotlight {
@@ -23,6 +28,7 @@ public final class Spotlight {
     public static var font: UIFont = UIFont(name: "Futura", size: 18)!
     public static var showInfoBackground: Bool = true
     public static var infoBackgroundEffect: UIBlurEffect.Style = .light
+    public static var infoBackgroundGradient: CAGradientLayer?
     public static var backButtonTitle = "Back"
     public static var nextButtonTitle = "Next"
 
@@ -34,7 +40,7 @@ public final class Spotlight {
         guard !nodes.isEmpty else { return }
         spotlightVC.spotlightNodes = nodes
         spotlightVC.delegate = delegate
-        controller.present(spotlightVC, animated: true, completion: nil)
+        controller.present(spotlightVC, animated: false)
     }
 
     private let spotlightVC = SpotlightViewController()

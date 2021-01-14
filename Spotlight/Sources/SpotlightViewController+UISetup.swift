@@ -18,7 +18,7 @@ extension SpotlightViewController {
 
     func setupSpotlightView() {
         spotlightView.frame = UIScreen.main.bounds
-        spotlightView.backgroundColor = Spotlight.backgroundColor
+        spotlightView.backgroundColor = .clear
         spotlightView.alpha = Spotlight.alpha
         spotlightView.isUserInteractionEnabled = false
         guard let view = view else { return }
@@ -44,6 +44,9 @@ extension SpotlightViewController {
         buttonsStack.axis = .horizontal
 
         infoLabel = createLabel()
+        if let firstNode = spotlightNodes.first {
+            infoLabel.text = firstNode.text
+        }
         let combinedStackView = UIStackView(arrangedSubviews: [infoLabel, buttonsStack])
         combinedStackView.axis = .vertical
         combinedStackView.spacing = 10
@@ -66,7 +69,7 @@ extension SpotlightViewController {
         infoStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
         infoStackTopConstraint = infoStackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 44)
-        infoStackBottomConstraint = infoStackView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -44)
+        infoStackBottomConstraint = infoStackView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -44 + UIScreen.main.bounds.height)
         infoStackTopConstraint.priority = .defaultLow
         infoStackBottomConstraint.priority = .defaultHigh
         infoStackTopConstraint.isActive = true
@@ -118,6 +121,12 @@ extension SpotlightViewController {
     }
 
     func insertBackgroundBlur() {
+        if let gradient = Spotlight.infoBackgroundGradient {
+            gradient.cornerRadius = 10.0
+            infoStackView.layer.insertSublayer(gradient, at: 0)
+            return
+        }
+        
         let blurEffect = UIBlurEffect(style: Spotlight.infoBackgroundEffect)
         let blurredEffectView = UIVisualEffectView(effect: blurEffect)
         let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)

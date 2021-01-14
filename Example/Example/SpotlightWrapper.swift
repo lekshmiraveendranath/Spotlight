@@ -53,11 +53,11 @@ final class SpotlightWrapper: NSObject {
 }
 
 extension SpotlightWrapper: SpotlightDelegate {
-    func didAdvance(to node: Int, of total: Int) {
+    func spotlightDidAdvance(to node: Int, of total: Int) {
         print("Showing Spotlight \(node) of \(total)")
     }
 
-    func didDismiss() {
+    func spotlightDidDismiss() {
         print("Spotlight was dismissed")
     }
 }
