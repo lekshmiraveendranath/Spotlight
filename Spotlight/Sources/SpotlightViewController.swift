@@ -45,6 +45,8 @@ final class SpotlightViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.nextSpotlight()
+        
         UIView.animate(withDuration: 0.5) { [weak self] in
             guard let self = self else { return }
             
@@ -54,7 +56,7 @@ final class SpotlightViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
         
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(setupFirstSpotlight), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(setupSpotlightDelay), userInfo: nil, repeats: false)
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,9 +67,7 @@ final class SpotlightViewController: UIViewController {
     }
     
     @objc
-    private func setupFirstSpotlight() {
-        self.nextSpotlight()
-
+    private func setupSpotlightDelay() {
         if Spotlight.delay > 0 {
             self.timer = Timer.scheduledTimer(timeInterval: Spotlight.delay, target: self, selector: #selector(self.nextSpotlight), userInfo: nil, repeats: true)
         }
