@@ -43,7 +43,13 @@ public enum SpotlightTarget: Equatable {
 
     func path(node: SpotlightNode, translater: UIView) -> UIBezierPath {
         let translatedFrame = targetView.convert(targetView.bounds, to: translater)
-        let spotlightFrame = translatedFrame.insetBy(dx: -8.0, dy: -8.0) // Add some breathing space for the spotlight
+        let spotlightFrame: CGRect
+        switch node.target {
+        case .none:
+            spotlightFrame = .zero
+        default:
+            spotlightFrame = translatedFrame.insetBy(dx: -8.0, dy: -8.0) // Add some breathing space for the spotlight
+        }
 
         if node.roundedCorners {
             return UIBezierPath(roundedRect: spotlightFrame, cornerRadius: spotlightFrame.height / 2.0)
